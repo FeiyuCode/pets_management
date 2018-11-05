@@ -27,21 +27,33 @@ Project File Date:  11/02/2018
 <h2>Output:</h2>
 Build target 'PICTURE'
 compiling main.c...
+..\HARDWARE\RC522\rc522.h(131): warning:  #1295-D: Deprecated declaration rc522port_Init - give arg types
+  void rc522port_Init();
 ..\HARDWARE\BEEP\beep.h(4): warning:  #1-D: last line of file ends without a newline
   void LED_Init(void);
 ..\HARDWARE\KEYBOARD\keyboard.h(4): warning:  #1-D: last line of file ends without a newline
   int Keyscan();
 ..\HARDWARE\KEYBOARD\keyboard.h(4): warning:  #1295-D: Deprecated declaration Keyscan - give arg types
   int Keyscan();
-main.c(96): warning:  #550-D: variable "flag_function_1" was set but never used
+main.c(106): warning:  #550-D: variable "flag_function_1" was set but never used
         unsigned flag_function_1=0;
-main.c(232): warning:  #111-D: statement is unreachable
+main.c(202): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+          sprintf(&dst[i],"%X/n",str[i]);
+main.c(204): warning:  #940-D: missing return statement at end of non-void function "hex_to_bi"
+  }
+main.c(253): warning:  #111-D: statement is unreachable
                                 break;
-main.c: 5 warnings, 0 errors
+main.c(209): warning:  #177-D: variable "i" was declared but never referenced
+        u8 i,beep_flag=0,hc_05_flag=0;
+main.c(209): warning:  #177-D: variable "beep_flag" was declared but never referenced
+        u8 i,beep_flag=0,hc_05_flag=0;
+main.c(209): warning:  #177-D: variable "hc_05_flag" was declared but never referenced
+        u8 i,beep_flag=0,hc_05_flag=0;
+main.c: 11 warnings, 0 errors
 linking...
-Program Size: Code=88022 RO-data=10046 RW-data=516 ZI-data=51592  
+Program Size: Code=88142 RO-data=10046 RW-data=564 ZI-data=51704  
 FromELF: creating hex file...
-"..\OBJ\PICTURE.axf" - 0 Error(s), 5 Warning(s).
+"..\OBJ\PICTURE.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\Wongnoubo\Desktop\×¨Àû\³èÎï¶ËÔÄ¶ÁÆ÷\USER\RTE

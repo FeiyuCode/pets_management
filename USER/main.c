@@ -18,15 +18,16 @@
 #include "rc522.h"
 #include "beep.h"
 #include "keyboard.h"
+#include "spi.h"
  
 /************************************
 stm32F103VET6                        //
 使用SPI2与模块通信，串口串口打印输出 //
 *连线说明：                          //
 *1--NSS(SDA)  <----->PF0             //
-*2--SCK <----->PB13                  //
-*3--MOSI<----->PB15                  // 
-*4--MISO<----->PB14                  //
+*2--SCK <----->PB13 (SCK)            //
+*3--MOSI<----->PB15 (MOSI)           // 
+*4--MISO<----->PB14 (MISO)          //
 *5--悬空                             //
 *6--GND <----->GND                   //
 *7--RST <----->PF1                   //
@@ -37,8 +38,8 @@ stm32F103VET6                        //
 *STM32开发板-->ATK-HC05蓝牙模块
 *		   PB10-->RXD
 *		   PB11-->TXD
-*			GND-->GND
-*		     5V-->VCC 
+*			 GND-->GND
+*		   5V-->VCC 
 ***********************************************/
 /**************************************************
 *矩阵键盘接线
@@ -46,13 +47,22 @@ stm32F103VET6                        //
 *      R1<->C4  R2<->C5  R3<->C6   R4<->C7
 *****************************************************/
 /**全局变量***/
-unsigned char card_1[4]={0x94,0xf8,0xcf,0x10};//card1ID号
-unsigned char SN[4]; //卡号
 unsigned char CT[2];//卡类型
-unsigned char card1_bit=0;  //card1选中标志
+unsigned char SN[4]; //卡号
+unsigned char sn[4];//卡号的字符串
 unsigned char RFID[16];			//存放RFID 
+unsigned char card1_bit=0;  //card1选中标志
+unsigned char card_1[4]={0x94,0xf8,0xcf,0x10};//card1ID号
 u8 KEY[6]={0xff,0xff,0xff,0xff,0xff,0xff};  //CARD1密码
-unsigned char newword[16]={0x05,0x04,0x01,0x08,0x08};//标记已经做过标签的卡
+unsigned char newword[16]={0x05,0x04,0x01,0x08,0x08};//我是你爸爸  扫描过的卡，都给标记一下
+unsigned char RFID1[16]={0x00,0x00,0x00,0x00,0x00,0x00,0xff,0x07,0x80,0x29,0xff,0xff,0xff,0xff,0xff,0xff};//写数据
+char result[16];
+u8 t,len,num_wake=0;
+
+u8 flag_function_1;//第一个功能的标志位
+u8 flag_hc_05;
+u8  Read_Data[16],PassWd[6],WriteData[16],RUSART_RX_BUF[30], MLastSelectedSnr[4],NewKey[16];//串口赋值用的
+u8 str[8],dst[8];;//将16进制数转换为字符串
 
 //得到path路径下,目标文件的总个数
 //path:路径		    
@@ -103,7 +113,6 @@ void readId(void)
 		status=MI_ERR;
 		status = PcdAnticoll(SN);/*防冲撞*/
 	}
-
 	if (status==MI_OK)//防冲撞成功
 	{
 		printf("防冲撞成功\r\n");
@@ -176,12 +185,32 @@ void readId(void)
 }
 
 
+///////////////////////////////////////////////
+//名字：hex_to_bi
+//功能：将16进制数转换为16进制字符串
+///////////////////////////////////////////////
+char hex_to_bi(unsigned char data[])
+{
+		u8 i;
+	 for(i = 0; i<5;i++)
+    {
+        str[2*i] = data[i]>>4;
+        str[2*i+1] = data[i]&0xf;
+    }
+		    for(i = 0; i<8;i++)
+    {
+        sprintf(&dst[i],"%X/n",str[i]);
+    }
+}
+
  int main(void)
  {
 	int KeyValue=0;
+	u8 i,beep_flag=0,hc_05_flag=0;
 	 
 	delay_init();	    	 //延时函数初始化	  
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置中断优先级分组为组2：2位抢占优先级，2位响应优先级
+	InitRc522();//初始化射频卡模块
 	uart_init(115200);	 	//串口初始化为115200
  	usmart_dev.init(72);		//初始化USMART		
  	LED_Init();		  			//初始化与LED连接的硬件接口
@@ -189,7 +218,7 @@ void readId(void)
 	LCD_Init();			   		//初始化LCD   
 	KeyBoard_Init();//初始化矩阵键盘
 	Beep_Init();//初始化蜂鸣器
-	InitRc522();//初始化射频卡模块
+	SPI2_Init();
 	delay_ms(1000);			//等待蓝牙模块上电稳定
 POINT_COLOR=RED; 
 while(font_init()) 		//检查字库
@@ -208,15 +237,8 @@ while(HC05_Init()) 		//初始化ATK-HC05模块
 		delay_ms(500);
 		LED1=~LED1;
 		delay_ms(100);
+		
 	}	
-  LCD_Clear(WHITE);
-  LCD_DrawRectangle(40, 30, 200, 160);//绘制矩形
- 	Show_Str(50,50,200,16,"宠物管家标签阅读器",16,0);		
-	Show_Str(50,70,200,16,"操作事项：",16,0);		
-	Show_Str(50,90,200,16,"KEY1阅读标签",16,0);			
-	Show_Str(50,110,200,16,"KEY2设置电话号码",16,0);		
-	Show_Str(50,130,200,16,"KEY3一键清零",16,0);	
-	delay_ms(1000);	
 	LCD_Clear(WHITE);
 		while(1) 
 		{
@@ -226,18 +248,18 @@ while(HC05_Init()) 		//初始化ATK-HC05模块
 				{
 					while(1){
 						readId();
-						Show_Str(50,70,200,16,"操作事项1：",16,0);	
 					}
 				}
 				break;
 				case 2:
 				{
-					Show_Str(50,70,200,16,"操作事项2：",16,0);	
+						
 				}
 				break;
 			}
-		}					    
-	} 											  
+	}
+}		
+	 											  
 
 
 

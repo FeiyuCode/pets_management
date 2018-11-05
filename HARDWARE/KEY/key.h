@@ -23,7 +23,7 @@
 #define KEY1  GPIO_ReadInputDataBit(GPIOE,GPIO_Pin_3)//读取按键1
 #define WK_UP   GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0)//读取按键3(WK_UP) 
 
- 
+#define BEEP PBout(8)	// BEEP,蜂鸣器接口	
 
 #define KEY0_PRES 	1	//KEY0按下
 #define KEY1_PRES	  2	//KEY1按下

@@ -127,8 +127,8 @@
 //sbit  spi_rst=P2^7;
 #define SPIReadByte()	SPIWriteByte(0)
 u8 SPIWriteByte(u8 byte);
-void SPI2_Init(void);
-
+//void SPI2_Init(void);
+void rc522port_Init();
 #define SET_SPI_CS  (GPIOF->BSRR=0X01)
 #define CLR_SPI_CS  (GPIOF->BRR=0X01)
 

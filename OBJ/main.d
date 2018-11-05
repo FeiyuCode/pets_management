@@ -58,3 +58,4 @@
 ..\obj\main.o: ..\HARDWARE\RC522\rc522.h
 ..\obj\main.o: ..\HARDWARE\BEEP\beep.h
 ..\obj\main.o: ..\HARDWARE\KEYBOARD\keyboard.h
+..\obj\main.o: ..\HARDWARE\SPI\spi.h
