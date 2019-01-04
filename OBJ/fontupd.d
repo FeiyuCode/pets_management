@@ -2,7 +2,7 @@
 ..\obj\fontupd.o: ..\TEXT\fontupd.h
 ..\obj\fontupd.o: ..\USER\stm32f10x.h
 ..\obj\fontupd.o: ..\CORE\core_cm3.h
-..\obj\fontupd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\fontupd.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\fontupd.o: ..\USER\system_stm32f10x.h
 ..\obj\fontupd.o: ..\USER\stm32f10x_conf.h
 ..\obj\fontupd.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -35,9 +35,9 @@
 ..\obj\fontupd.o: ..\HARDWARE\W25QXX\w25qxx.h
 ..\obj\fontupd.o: ..\SYSTEM\sys\sys.h
 ..\obj\fontupd.o: ..\HARDWARE\LCD\lcd.h
-..\obj\fontupd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\fontupd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\fontupd.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\fontupd.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\fontupd.o: ..\MALLOC\malloc.h
 ..\obj\fontupd.o: ..\SYSTEM\delay\delay.h
 ..\obj\fontupd.o: ..\SYSTEM\usart\usart.h
-..\obj\fontupd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\fontupd.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\stdio.h

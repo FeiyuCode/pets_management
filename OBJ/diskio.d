@@ -4,7 +4,7 @@
 ..\obj\diskio.o: ..\HARDWARE\SDIO\sdio_sdcard.h
 ..\obj\diskio.o: ..\USER\stm32f10x.h
 ..\obj\diskio.o: ..\CORE\core_cm3.h
-..\obj\diskio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\diskio.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\diskio.o: ..\USER\system_stm32f10x.h
 ..\obj\diskio.o: ..\USER\stm32f10x_conf.h
 ..\obj\diskio.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

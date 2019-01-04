@@ -3,13 +3,13 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.14.0.0
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Wong noubo, ChineseErzhong, LIC=S5IHL-0FN4H-FZZWU-SYVVN-Q16VI-BQP5X
+IDE-Version: μVision V5.24.2.86
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: dcx Microsoft, Microsoft, LIC=KIVNN-YGS1H-VJ86J-U4S20-EEBBE-68HHR
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
-Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+Toolchain Path:  D:\mdk_keil5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.05 update 1 (build 106)
 Assembler:       Armasm.exe V5.05 update 1 (build 106)
 Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
@@ -21,11 +21,14 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
 Dialog DLL:      TARMSTM.DLL V1.64.0.0
  
 <h2>Project:</h2>
-C:\Users\Wongnoubo\Desktop\专利\宠物端阅读器\USER\PICTURE.uvprojx
-Project File Date:  11/02/2018
+E:\大创\宠物资料\宠物端阅读器\USER\PICTURE.uvprojx
+Project File Date:  11/06/2018
 
 <h2>Output:</h2>
-Build target 'PICTURE'
+*** Using Compiler 'V5.05 update 1 (build 106)', folder: 'D:\mdk_keil5\ARM\ARMCC\Bin'
+Rebuild target 'PICTURE'
+compiling system_stm32f10x.c...
+compiling stm32f10x_it.c...
 compiling main.c...
 ..\HARDWARE\RC522\rc522.h(131): warning:  #1295-D: Deprecated declaration rc522port_Init - give arg types
   void rc522port_Init();
@@ -35,31 +38,132 @@ compiling main.c...
   int Keyscan();
 ..\HARDWARE\KEYBOARD\keyboard.h(4): warning:  #1295-D: Deprecated declaration Keyscan - give arg types
   int Keyscan();
-main.c(106): warning:  #550-D: variable "flag_function_1" was set but never used
-        unsigned flag_function_1=0;
-main.c(202): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-          sprintf(&dst[i],"%X/n",str[i]);
-main.c(204): warning:  #940-D: missing return statement at end of non-void function "hex_to_bi"
+main.c(116): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+          sprintf(&dst[i],"%X",str[i]);
+main.c(118): warning:  #940-D: missing return statement at end of non-void function "hex_to_bi"
   }
-main.c(253): warning:  #111-D: statement is unreachable
-                                break;
-main.c(209): warning:  #177-D: variable "i" was declared but never referenced
-        u8 i,beep_flag=0,hc_05_flag=0;
-main.c(209): warning:  #177-D: variable "beep_flag" was declared but never referenced
-        u8 i,beep_flag=0,hc_05_flag=0;
-main.c(209): warning:  #177-D: variable "hc_05_flag" was declared but never referenced
-        u8 i,beep_flag=0,hc_05_flag=0;
-main.c: 11 warnings, 0 errors
+main.c(177): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+  			sprintf(&phoneStr[i],"%X",getPhone[i]);
+main.c(130): warning:  #177-D: variable "s" was declared but never referenced
+  	unsigned char s=0x08;
+main.c(220): warning:  #177-D: variable "key" was declared but never referenced
+  	u8 key;				//键值
+main.c(221): warning:  #177-D: variable "pause" was declared but never referenced
+  	u8 pause=0;			//暂停标记
+main.c(222): warning:  #550-D: variable "t" was set but never used
+  	u8 t;
+main.c(296): warning:  #177-D: variable "i" was declared but never referenced
+  	u8 i,beep_flag=0,hc_05_flag=0;
+main.c(296): warning:  #177-D: variable "beep_flag" was declared but never referenced
+  	u8 i,beep_flag=0,hc_05_flag=0;
+main.c(296): warning:  #177-D: variable "hc_05_flag" was declared but never referenced
+  	u8 i,beep_flag=0,hc_05_flag=0;
+main.c(297): warning:  #177-D: variable "j" was declared but never referenced
+  	u8 j;//j手机号码，k删除次数 
+main.c(298): warning:  #177-D: variable "SNMark" was declared but never referenced
+  	 u8 SNMark;//
+main.c(299): warning:  #177-D: variable "status" was declared but never referenced
+  	 u8 status;
+main.c: 17 warnings, 0 errors
+compiling led.c...
+compiling key.c...
+compiling spi.c...
+compiling lcd.c...
+compiling w25qxx.c...
+compiling beep.c...
+..\HARDWARE\BEEP\beep.h(4): warning:  #1-D: last line of file ends without a newline
+  void LED_Init(void);
+..\HARDWARE\BEEP\beep.c: 1 warning, 0 errors
+compiling sdio_sdcard.c...
+compiling hc05.c...
+..\HARDWARE\HC05\hc05.c(56): warning:  #223-D: function "delay_ms" declared implicitly
+  		delay_ms(10);
+..\HARDWARE\HC05\hc05.c(87): warning:  #223-D: function "delay_ms" declared implicitly
+  		delay_ms(10);
+..\HARDWARE\HC05\hc05.c(120): warning:  #223-D: function "delay_ms" declared implicitly
+  		delay_ms(10);
+..\HARDWARE\HC05\hc05.c(150): warning:  #223-D: function "delay_ms" declared implicitly
+  	delay_ms(10);
+..\HARDWARE\HC05\hc05.c: 4 warnings, 0 errors
+compiling usart3.c...
+compiling rc522.c...
+..\HARDWARE\RC522\rc522.h(131): warning:  #1295-D: Deprecated declaration rc522port_Init - give arg types
+  void rc522port_Init();
+..\HARDWARE\RC522\rc522.c(104): warning:  #223-D: function "delay_ms" declared implicitly
+    delay_ms(2);  
+..\HARDWARE\RC522\rc522.c(112): warning:  #223-D: function "delay_ms" declared implicitly
+    delay_ms(2);  
+..\HARDWARE\RC522\rc522.c(240): warning:  #223-D: function "memcpy" declared implicitly
+      memcpy(&ucComMF522Buf[2], pKey, 6); 
+..\HARDWARE\RC522\rc522.c(609): warning:  #223-D: function "memcpy" declared implicitly
+          memcpy(ucComMF522Buf, pValue, 4);
+..\HARDWARE\RC522\rc522.c: 5 warnings, 0 errors
+compiling keyboard.c...
+..\HARDWARE\KEYBOARD\keyboard.h(4): warning:  #1-D: last line of file ends without a newline
+  int Keyscan();
+..\HARDWARE\KEYBOARD\keyboard.h(4): warning:  #1295-D: Deprecated declaration Keyscan - give arg types
+  int Keyscan();
+..\HARDWARE\KEYBOARD\keyboard.c(41): warning:  #223-D: function "printf" declared implicitly
+                  case 0x11:KeyValue=10;printf("KEY=%d\n",KeyValue);break; 
+..\HARDWARE\KEYBOARD\keyboard.c(55): warning:  #223-D: function "printf" declared implicitly
+                   case 0x12:KeyValue=13;printf("KEY=%d\n",KeyValue);break;
+..\HARDWARE\KEYBOARD\keyboard.c(73): warning:  #223-D: function "printf" declared implicitly
+                      case 0x14:KeyValue=14;printf("KEY=%d\n",KeyValue);break;
+..\HARDWARE\KEYBOARD\keyboard.c(87): warning:  #223-D: function "printf" declared implicitly
+                       case 0x18:KeyValue=15;printf("KEY=%d\n",KeyValue);break;
+..\HARDWARE\KEYBOARD\keyboard.c(121): warning:  #940-D: missing return statement at end of non-void function "Keyscan"
+  }
+..\HARDWARE\KEYBOARD\keyboard.c(26): warning:  #177-D: variable "y" was declared but never referenced
+  	int y=0;
+..\HARDWARE\KEYBOARD\keyboard.c: 8 warnings, 0 errors
+compiling timer.c...
+compiling delay.c...
+compiling sys.c...
+compiling core_cm3.c...
+compiling usart.c...
+assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_gpio.c...
+compiling misc.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_tim.c...
+compiling malloc.c...
+compiling stm32f10x_sdio.c...
+compiling diskio.c...
+compiling ff.c...
+compiling exfuns.c...
+compiling fattester.c...
+compiling mycc936.c...
+compiling usmart.c...
+compiling fontupd.c...
+compiling usmart_config.c...
+compiling usmart_str.c...
+compiling text.c...
+compiling bmp.c...
+compiling gif.c...
+compiling piclib.c...
+compiling tjpgd.c...
 linking...
-Program Size: Code=88142 RO-data=10046 RW-data=564 ZI-data=51704  
+Program Size: Code=88818 RO-data=10046 RW-data=568 ZI-data=51732  
 FromELF: creating hex file...
-"..\OBJ\PICTURE.axf" - 0 Error(s), 11 Warning(s).
+"..\OBJ\PICTURE.axf" - 0 Error(s), 35 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.1.0.5.pack
+                Keil.STM32F1xx_DFP.1.0.5
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Wongnoubo\Desktop\专利\宠物端阅读器\USER\RTE
-  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+  .\RTE\_PICTURE
+  D:\mdk_keil5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
 
 <h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:20
 </pre>
 </body>
 </html>

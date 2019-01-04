@@ -1,7 +1,7 @@
 ..\obj\keyboard.o: ..\HARDWARE\KEYBOARD\keyboard.c
 ..\obj\keyboard.o: ..\USER\stm32f10x.h
 ..\obj\keyboard.o: ..\CORE\core_cm3.h
-..\obj\keyboard.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\keyboard.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\keyboard.o: ..\USER\system_stm32f10x.h
 ..\obj\keyboard.o: ..\USER\stm32f10x_conf.h
 ..\obj\keyboard.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

@@ -38,13 +38,13 @@ int Keyscan(void)
 
 				switch(GPIO_ReadInputData(GPIOC)&0xff)
            { 
-                case 0x11:KeyValue=1;printf("KEY=%d\n",KeyValue);break; 
+                case 0x11:KeyValue=10;printf("KEY=%d\n",KeyValue);break; 
  
-                case 0x21:KeyValue=2;printf("KEY=%d\n",KeyValue);break; 
+                case 0x21:KeyValue=11;printf("KEY=%d\n",KeyValue);break; 
  
-                case 0x41:KeyValue=3;printf("KEY=%d\n",KeyValue);break; 
+                case 0x41:KeyValue=0;printf("KEY=%d\n",0);break; 
  
-                case 0x81:KeyValue=4;printf("KEY=%d\n",KeyValue);break;
+                case 0x81:KeyValue=12;printf("KEY=%d\n",KeyValue);break;
             } 
                 GPIO_SetBits(GPIOC,GPIO_Pin_1);
  
@@ -52,14 +52,14 @@ int Keyscan(void)
  
                  switch(GPIO_ReadInputData(GPIOC)&0xff)
                { 
-                 case 0x12:KeyValue=5;printf("KEY=%d\n",KeyValue);break;
+                 case 0x12:KeyValue=13;printf("KEY=%d\n",KeyValue);break;
  
-                 case 0x22:KeyValue=6;printf("KEY=%d\n",KeyValue);break; 
+                 case 0x22:KeyValue=3;printf("KEY=%d\n",3);break; 
  
  
-                 case 0x42:KeyValue=7;printf("KEY=%d\n",KeyValue);break;
+                 case 0x42:KeyValue=2;printf("KEY=%d\n",2);break;
  
-                 case 0x82:KeyValue=8;printf("KEY=%d\n",KeyValue);break; 
+                 case 0x82:KeyValue=1;printf("KEY=%d\n",1);break; 
  
                 } 
                  GPIO_SetBits(GPIOC,GPIO_Pin_2); 
@@ -70,13 +70,13 @@ int Keyscan(void)
 
                   switch(GPIO_ReadInputData(GPIOC)&0xff)
                    { 
-                    case 0x14:KeyValue=9;printf("KEY=%d\n",KeyValue);break;
+                    case 0x14:KeyValue=14;printf("KEY=%d\n",KeyValue);break;
  
-                    case 0x24:KeyValue=10;printf("KEY=%d\n",KeyValue);break;
+                    case 0x24:KeyValue=6;printf("KEY=%d\n",6);break;
  
-                    case 0x44:KeyValue=11;printf("KEY=%d\n",KeyValue);break;
+                    case 0x44:KeyValue=5;printf("KEY=%d\n",5);break;
  
-                    case 0x84:KeyValue=12;printf("KEY=%d\n",KeyValue);break;
+                    case 0x84:KeyValue=4;printf("KEY=%d\n",4);break;
                    } 
                     GPIO_SetBits(GPIOC,GPIO_Pin_3); 
  
@@ -84,13 +84,13 @@ int Keyscan(void)
                                               
                    switch(GPIO_ReadInputData(GPIOC)&0xff)
                     {
-                     case 0x18:KeyValue=13;printf("KEY=%d\n",KeyValue);break;
+                     case 0x18:KeyValue=15;printf("KEY=%d\n",KeyValue);break;
 
-                     case 0x28:KeyValue=14;printf("KEY=%d\n",KeyValue);break; 
+                     case 0x28:KeyValue=9;printf("KEY=%d\n",9);break; 
 
-                     case 0x48:KeyValue=15;printf("KEY=%d\n",KeyValue);break;
+                     case 0x48:KeyValue=8;printf("KEY=%d\n",8);break;
 
-                     case 0x88:KeyValue=16;printf("KEY=%d\n",KeyValue);break;
+                     case 0x88:KeyValue=7;printf("KEY=%d\n",7);break;
                      } 
                         GPIO_SetBits(GPIOC,GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2 |GPIO_Pin_3); 
                         GPIO_ResetBits(GPIOC, GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 |GPIO_Pin_7);

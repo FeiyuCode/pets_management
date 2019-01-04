@@ -3,7 +3,7 @@
 ..\obj\bmp.o: ..\SYSTEM\sys\sys.h
 ..\obj\bmp.o: ..\USER\stm32f10x.h
 ..\obj\bmp.o: ..\CORE\core_cm3.h
-..\obj\bmp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\bmp.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\bmp.o: ..\USER\system_stm32f10x.h
 ..\obj\bmp.o: ..\USER\stm32f10x_conf.h
 ..\obj\bmp.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -31,7 +31,7 @@
 ..\obj\bmp.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\bmp.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\bmp.o: ..\HARDWARE\LCD\lcd.h
-..\obj\bmp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\bmp.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\bmp.o: ..\MALLOC\malloc.h
 ..\obj\bmp.o: ..\FATFS\src\ff.h
 ..\obj\bmp.o: ..\FATFS\src\integer.h
@@ -41,4 +41,4 @@
 ..\obj\bmp.o: ..\PICTURE\tjpgd.h
 ..\obj\bmp.o: ..\PICTURE\integer.h
 ..\obj\bmp.o: ..\PICTURE\gif.h
-..\obj\bmp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\bmp.o: D:\mdk_keil5\ARM\ARMCC\Bin\..\include\string.h
