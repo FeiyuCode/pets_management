@@ -53,7 +53,7 @@ R1<->PC4  R2<->PC5  R3<->PC6   R4<->PC7
 **实验现象:**
 > * 	KEY1可以读卡的标签号和卡内存储的主人手机号码。
 > * 	KEY2往卡内写入主人的电话号码，支持输错退格。
-	![宠物标签阅读器][1]
+![宠物RC522标签阅读器][1]
 
 
-  [1]: https://github.com/wongnoubo/pets_management/blob/master/images/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg
+  [1]: https://github.com/wongnoubo/pets_management/blob/master/images/result.jpg
